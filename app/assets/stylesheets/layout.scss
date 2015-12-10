@@ -1,0 +1,251 @@
+
+/*// Sass Mixins
+// Breakpoints for each query
+
+$smartphone: 480px;
+$desktop: 1100px;
+
+@mixin respondTo($media) {
+  @if $media == tiny {
+    @media (max-width: $smartphone) { @content; }
+  }
+  @else if $media == normal {
+    @media (max-width: $desktop) { @content; }
+  }
+}
+*/
+
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin:0px; 
+}
+
+body {
+/*  &.disabled {
+    overflow: hidden; // disable scrolling
+  }*/
+}
+
+/*// styling page wrap and .disabled class*/
+
+.page-wrap {
+  background-color: white;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+/*  overflow: hidden; // remove in development*/
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  z-index: 2;
+  
+  &.disabled {
+    left: calc(100% - 80px);
+  }
+}
+
+/*// basic header styles*/
+
+header {
+  box-shadow: 0px 5px 5px #999999;
+  height: 75px;
+  position: relative;
+  background-color: white;
+  position:fixed;
+  width:100%;
+  z-index: 3;
+}
+
+/*// styling of hamburger menu*/
+
+.hamburger-menu {
+  display: inline-block;
+  height: 75px;
+  padding:25px 25px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .menu-item {
+    background: black;
+    display: block;
+    height: 3.5px;
+    margin: 0 0 10px;
+    transition: all 0.3s ease-in-out;
+    width: 40px;
+  }
+
+
+  &.open {
+
+    .menu-item {
+      margin: 0 0 5px;
+
+      &:first-child {
+        transform: rotate(45deg);
+        transform-origin: 10px;
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        transform-origin: 8px;
+      }
+    }
+  }
+}
+
+
+/*// nav styles*/
+
+.mobile-nav-wrap {
+  @media (min-width: 769px) {
+    /* display: none; */
+  }
+}
+
+/*// fixed mobile nav styling*/
+
+.mobile-nav-wrap {
+/*  background-color: #222222;*/
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+  
+  .fixed-mobile-nav {
+    list-style: none;
+    margin: 50px 0 0;
+    padding: 0;
+    font-family: "Futura", sans-serif;
+    
+    li {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-left: 50px;
+      width: 50%;
+      a {
+        color: #000000;
+        display: block;
+        font-size: 24px;
+        padding: 25px 0;
+        text-decoration: none;
+      }
+            a:hover {
+        color: #0000ff;
+        display: block;
+        font-size: 24px;
+        padding: 25px 0;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+/*// search wrap */
+
+
+main {
+ postion:relative;
+}
+
+.left{
+    float:left;
+    width:42%;
+}
+
+.right{
+    float:right;
+}
+
+
+.search {
+	height:100%;
+	width:100%;
+	background-color: lightgrey;
+	@include centerer;
+/*	  transition: all 0.3s;*/
+  	display: none;
+/*        padding:30% 20%;*/
+  	z-index: 1;
+}
+
+.searcher {
+  width: 100%;
+  position: relative;
+    border:1px black;
+}
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  height:60px;
+  font-size: 20px;
+  padding:10px;
+  border: 2px solid #000000;
+  background-color: white;
+/*  padding: 5px;
+  height: 20px;*/
+/*  border-radius: 5px;*/
+  outline: none;
+  color: #000;
+  font-family: "Futura", sans-serif;
+}
+
+.searchTerm:focus{
+  color: #000000;
+}
+
+.searchButton {
+  position: absolute;  
+  right: -50px;
+  width: 40px;
+  height:60px;
+  background-color: lightgrey;
+  border: 0px solid #000;
+  text-align: center;
+  color: #000;
+/*  border-radius: 5px;*/
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wrap{
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a  {
+      color:#000;
+      text-decoration:none;
+    }
+
+a:hover {
+  	text-decoration:underline;
+}
+
+
+.this1 {
+  height:500px; 
+  background-color:white;
+}

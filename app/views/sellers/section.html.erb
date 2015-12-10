@@ -1,0 +1,69 @@
+
+
+<div class="frame">
+  <div class="wrapper">
+  <div class="sections" style="width:100%;">
+    <ul>
+    <% @sections.each do |section| %>
+      <li><%= link_to section['title'], section_path(format: section["shop_section_id"]) %></li>
+    <% end %>
+</div>
+
+ <div class="grid">
+    <div class="index-picture grid-item">
+      <% @items.each do |item| %>
+        <div class="grid-item">
+          <div class="listinginfo">
+        <ul>
+          <li><%= image_tag item["MainImage"]["url_570xN"] %></li> 
+          <li>$<%= item['price']  %></li>
+          <li><%= item['title'] %></li>
+          <li><%= link_to 'Show', listing_path(format: item["listing_id"]) %></li>
+        </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="pages">
+    <ul>
+    <li><%=link_to @page['effective_page'], section_path(format: "limit=" + @page['effective_limit'].to_s + 
+    "&offset=" + @page['effective_offset'].to_s) %></li>
+    <li><%=link_to @page['next_page'], section_path(format: "limit=" + @page['effective_limit'].to_s + 
+    "&offset=" + @page['next_offset'].to_s) %>  </li> 
+  </ul>
+</div>
+
+
+
+  <script>
+
+// $('.mobile-nav-wrap').hide();
+$('.js-toggle-menu').click(function(e){
+  e.preventDefault();
+  $(this).toggleClass('open');
+  $('.page-wrap').toggleClass('disabled');
+  $('body').toggleClass('disabled');
+});
+$('.search-menu-toggle').click(function(){
+  $(this).toggleClass("on");
+  $('.search').slideToggle();
+});
+
+var $grid = jQuery('.grid');
+
+$(".grid").imagesLoaded(function(){
+
+  $('.grid').isotope({
+    itemSelector: '.grid-item',
+    masonry: {
+      columnWidth: 310
+    }
+  });
+
+  $grid.isotope('reloadItems');
+});
+
+</script>
+

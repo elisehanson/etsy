@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transfer</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <!--   Google Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Swiper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.6/js/swiper.jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.6/css/swiper.css">
+<!--   Masonry -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+<!-- Instafeed -->
+	<script src="https://cdn.rawgit.com/stevenschobert/instafeed.js/master/instafeed.js"></script>  
+
+  <script>
+
+  $('.js-toggle-menu').click(function(e){
+    e.preventDefault();
+    $(this).toggleClass('open');
+    $('.page-wrap').toggleClass('disabled');
+    $('body').toggleClass('disabled');
+  });
+  $('.search-menu-toggle').click(function(){
+    $(this).toggleClass("on");
+    $('.search').slideToggle();
+  });
+
+  </script>
+</head>
+
+<body>
+<nav class="mobile-nav-wrap" role="navigation">
+  <ul class="fixed-mobile-nav">
+    <li><%= link_to 'Shop', sellers_path %></li>
+    <li><%= link_to 'About', about_path %> </li>
+    <li><%= link_to 'Blog', home_path %></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+  <header>
+
+<span class="left">
+    <a class="mobile-menu-toggle js-toggle-menu hamburger-menu" href="#">
+      <span class="menu-item"></span>
+      <span class="menu-item"></span>
+      <span class="menu-item"></span>
+   </a>
+</span>
+
+
+<img src="https://41.media.tumblr.com/46e1483c161314123fa4852c7524d33f/tumblr_nyqv1c24sn1simze1o1_75sq.png" style="padding: 15px 15px; top:0;">
+
+<span class="right">
+    <a class="search-menu-toggle" href="#">
+      <i class="material-icons" style="font-size:50px; padding: 15px 15px; top:0;">search</i>
+    </a>
+</span>
+
+  </header>  
+
+  <main>
+
+<div class="search hide">
+    <div class="wrap">
+    <div class="searcher">
+        <form id="etsy-search">
+      <input type="text" id="etsy-terms" class="searchTerm" placeholder="Search">
+      <button type="submit" class="searchButton">
+        <i class="material-icons">search</i>
+      </button>
+      </form>
+   </div>
+  </div>
+</div>
+
+<div style="padding-top:100px; background-color:white;">
+
+  <%= yield %>
+
+</div>
+  </main>
+
+
+</body>
+</html>

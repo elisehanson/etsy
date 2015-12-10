@@ -1,0 +1,315 @@
+// Place all the styles related to the seller controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* FONTS */
+
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300italic,300,400italic);
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.frame {
+  margin: 0 auto;
+  max-width: 100%; 
+      background-color:white;
+       z-index: 1;
+
+}
+  .frame:after {
+    content: "";
+    display: table;
+    clear: both; 
+}
+
+
+[class*='bit-'] {
+  float: left;
+  padding: 0.3em; }
+
+.bit-1 {
+  width: 100%; }
+
+.bit-2 {
+  width: 50%; }
+
+.bit-3 {
+  width: 33.33333%; }
+
+.bit-4 {
+  width: 25%; }
+
+.bit-5 {
+  width: 20%; }
+
+.bit-6 {
+  width: 16.66667%; }
+
+.bit-7 {
+  width: 14.28571%; }
+
+.bit-8 {
+  width: 12.5%; }
+
+.bit-9 {
+  width: 11.11111%; }
+
+.bit-10 {
+  width: 10%; }
+
+.bit-11 {
+  width: 9.09091%; }
+
+.bit-12 {
+  width: 8.33333%; }
+
+.bit-25 {
+  width: 25%; }
+
+.bit-40 {
+  width: 40%; }
+
+.bit-60 {
+  width: 60%; }
+
+.bit-75 {
+  width: 75%; }
+
+@media (max-width: 30em) {
+  .bit-1 {
+    width: 100%; }
+  .bit-2 {
+    width: 100%; }
+  .bit-3 {
+    width: 100%; }
+  .bit-4 {
+    width: 100%; }
+  .bit-5 {
+    width: 100%; }
+  .bit-6 {
+    width: 100%; }
+  .bit-7 {
+    width: 100%; }
+  .bit-8 {
+    width: 100%; }
+  .bit-9 {
+    width: 100%; }
+  .bit-10 {
+    width: 100%; }
+  .bit-11 {
+    width: 100%; }
+  .bit-12 {
+    width: 100%; } }
+
+@media (min-width: 30em) and (max-width: 50em) {
+  .bit-4, .bit-6, .bit-8, .bit-10, .bit-12 {
+    width: 50%; }
+  .bit-1, .bit-2, .bit-3, .bit-5, .bit-7, .bit-9, .bit-11 {
+    width: 100%; } }
+
+@media (min-width: 50em) and (max-width: 68.75em) {
+  .bit-2, .bit-7 {
+    width: 100%; }
+  .bit-4, .bit-8, .bit-10, .bit-12 {
+    width: 50%; } }
+
+.box {
+  background: lemonchiffon;
+  font-family: "Futura", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0; 
+      img {
+    	height:100%;
+    	width:100%;
+    }
+
+}
+  .box--new {
+    background: salmon; 
+    img {
+    	height:100%;
+    	width:100%;
+    }
+
+}
+
+.wrapper {
+	margin:0 ;
+/*	padding:4%;*/
+	height:100%;
+	width:100%;
+	background-color: white;
+}
+
+
+.side ul li {
+	list-style-type: none;
+
+		img {
+		width:100%;
+		height:100%;
+	}
+}
+
+.side ul {
+	float:left;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    margin:0px;
+}
+
+@media (max-width: 30em) {
+
+	.wrapper {
+		margin:0%;
+	/*	padding:4%;*/
+		height:100%;
+		width:100%;
+		background-color: white;
+	}
+
+  .grid {
+    margin-left:14%;
+  }
+
+  .sections {
+    display:none;
+  }
+
+  .grid-item ul {
+    width:100%;
+  }
+
+	.listinginfo ul {
+	width:100%; 
+	float:left;
+/*    padding: 10px;*/
+    text-align: center;
+    background-color: white;
+    margin:0px;
+	}
+
+	.listinginfo li img {
+		width:100%;
+		height:100%;
+	}
+
+}
+
+
+.side {
+	font-family: 'Fira Sans', sans-serif;
+	text-decoration: uppercase;
+	font-size:10px; 
+	list-style-type:none;
+	font-weight: 300;
+}
+
+header {
+	font-family: 'Playfair Display', serif;
+	font-size: 45px;
+}
+
+
+.listinginfo {
+  font-family: 'Fira Sans', sans-serif;
+  text-decoration: uppercase;
+  font-size:10px; 
+  list-style-type:none;
+  font-weight: 300;
+}
+
+.listinginfo ul {
+  width:100%;
+  float:left;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  margin:0px;
+}
+
+.listinginfo ul li {
+  list-style-type: none;
+
+      img {
+      width:100%;
+      height:100%;
+    }
+  }
+
+
+
+.sections {
+  font-family: "Futura", sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-bottom:30px;
+    text-align: center;
+/*  position:fixed;
+  background-color:lightgrey;*/
+}
+
+.sections ul {
+    height: auto;
+    padding: 8px 0px;
+    margin: 0px;
+}
+
+.sections ul li {
+  display: inline; 
+  padding: 5px; 
+}
+
+
+.grid {
+  background: #fff;
+  max-width: 1400px;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  float: left;
+  width: 290px;
+  background: #fff;
+  border: 2px solid #fff;
+  border-color: #fff;
+}
+
+.grid-item img {
+  max-width:100%;
+  max-height:100%;
+}
+
+
+.pages {
+  text-align: center;
+  font-size:20;
+  font-family: 'futura';
+  margin-bottom: 50px;
+}
+
+.pages ul {
+    height: auto;
+    padding: 8px 0px;
+    margin: 0px;
+}
+
+.pages ul li {
+  display: inline; 
+  padding: 5px; 
+}
+

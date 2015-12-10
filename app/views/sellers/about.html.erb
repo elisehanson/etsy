@@ -1,0 +1,62 @@
+<script>
+
+// $('.mobile-nav-wrap').hide();
+$('.js-toggle-menu').click(function(e){
+  e.preventDefault();
+  $(this).toggleClass('open');
+  $('.page-wrap').toggleClass('disabled');
+  $('body').toggleClass('disabled');
+});
+$('.search-menu-toggle').click(function(){
+  $(this).toggleClass("on");
+  $('.search').slideToggle();
+});
+
+</script>
+
+
+<% @infos.each do |info| %>
+
+
+        <div class="bit-3">
+    <div class="box" style="background-color:white;">
+          <h1> announcement </h1><br>
+         <%= info['announcement'] %> </hr>
+           </div>
+</div>
+
+<div class="bit-3">
+    <div class="box" style="background-color:white;">
+         <h1> sale message </h1><br>
+          <%= info['sale_message'] %></hr>
+            </div>
+</div>
+
+<div class="bit-3">
+    <div class="box" style="background-color:white;">
+          <h1> number of followers </h1><br>
+          <%= info['num_favorers'] %> </hr>
+            </div>
+</div>
+
+<div class="bit-1">
+    <div class="box" style="background-color:white;">
+          <h1> shipping policy </h1><br>
+          <%= info['policy_shipping'] %> </hr>
+            </div>
+</div>
+<!--   <%= image_tag info['icon_url_fullxfull'] %>  -->
+          <h1> <%= info['shop_name'] %> </h1> </hr>
+        
+      </div>
+    </div>
+  <% end %>
+
+<div class="bit-1">
+    <div class="box" style="background-color:white;">
+      <h1>social bar </h1>
+            </div>
+</div>
+
+  </div>
+</div>
