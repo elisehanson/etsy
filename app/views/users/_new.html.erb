@@ -1,0 +1,40 @@
+
+
+<!-- <h1>Sign Up</h1> -->
+	<%=form_for User.new do |f| %>
+	<%=f.label :shop_name %>
+	<%=f.text_field :email, class: 'inpt', placeholder: 'Your shop name' %>
+	<%=f.label :password %>
+	<%=f.password_field :password, class: 'inpt', placeholder: 'Your password'  %>
+	<%=f.label :password_confirmation %>
+	<%=f.password_field :password_confirmation,  class: 'inpt', placeholder: 'Your password confirmation'  %>
+	<div class="submit-wrap">
+	<%=f.submit "Sign Up", class: 'submit'  %>
+	</div>
+<%end%>
+
+
+
+  <script>
+
+  $('.tabs .tab').click(function(){
+    if ($(this).hasClass('signin')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signin-cont').show();
+    } 
+    if ($(this).hasClass('signup')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signup-cont').show();
+    }
+});
+$('.container .bg').mousemove(function(e){
+    var amountMovedX = (e.pageX * -1 / 30);
+    var amountMovedY = (e.pageY * -1 / 9);
+    $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+});
+
+  </script>

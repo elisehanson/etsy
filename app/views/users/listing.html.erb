@@ -1,0 +1,164 @@
+
+    <style>
+
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .btn {
+      width: 250px;
+      border:1px black solid;
+      height:25px;
+      background-color:transparent;
+      text-transform: uppercase;
+      font-family: 'Fira Sans', sans-serif;
+      font-size:12px;
+      font-weight: 300;
+      margin-top:75px;
+      margin-bottom:70px;
+    }
+
+    .fave {
+      width: 50px;
+
+    }
+
+
+      .btn:hover {
+      border:1px blue solid;
+
+    }
+
+    h2 {
+      margin-top:70px;
+      margin-bottom:25px;
+      font-family: 'Playfair Display', serif;
+      font-weight:700;
+    }
+
+
+    </style>
+
+<script>
+
+$('.js-toggle-menu').click(function(e){
+  e.preventDefault();
+  $(this).toggleClass('open');
+  $('.page-wrap').toggleClass('disabled');
+  $('body').toggleClass('disabled');
+});
+
+
+$('.search-menu-toggle').click(function(){
+  $(this).toggleClass("on");
+  $('.search').slideToggle();
+    
+});
+
+
+$('.fave').click(function() {
+     $('.fave').fadeOut(); 
+   });
+
+
+</script>
+
+
+<!-- <div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="#">e</a>
+    <ul class="nav">
+      <li><%= form_tag('/', method: 'get') do %>
+          <%= search_field_tag('id') %>
+          <%= submit_tag('Search') %></li>
+    </ul>
+  </div>
+</div>
+<% end %> -->
+<!-- <div class="row">
+  <div class="span12"> -->
+
+<div class="frame">
+<div class= "bit-2" style="height:500px;">
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <% @images.each do |image| %>
+            <div class="swiper-slide">
+              <%= image_tag image['url_570xN'] %>
+            </div>
+           <% end %> 
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</div>
+
+
+<div class="side bit-2"> 
+  <ul>
+    <% @items.each do |item| %>
+      <li><h2> <%= item['title'] %></h2></li>
+      <li> $<%= item['price']  %></li>
+
+      <li style="font-size:12px;"> <%= item['description'] %></li>
+
+      <span><button class="btn fave"><i class="material-icons" style="font-size:12px;">favorite_border</i></button> <%= button_tag "add to cart  | $" + item['price'], :class => "btn"%> </span>
+
+  <li><%= item['views'] %> views | <%= item['num_favorers'] %> favorites </li>
+
+    <li><a target='_blank' href="<%= item['url'] %>">View Item on Etsy</a></li><br><br>
+
+    <% end %>
+  </ul>
+</div>
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- Swiper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.6/js/swiper.jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.2.6/css/swiper.css">
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+    });
+    </script>
+
+
+
+</div>
+

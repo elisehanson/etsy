@@ -36,9 +36,18 @@
 <body>
 <nav class="mobile-nav-wrap" role="navigation">
   <ul class="fixed-mobile-nav">
-    <li><%= link_to 'Shop', sellers_path %></li>
+     <% if current_user %>
+    <li><%= link_to 'My Shop', sellers_path %></li>
     <li><%= link_to 'About', about_path %> </li>
     <li><%= link_to 'Blog', home_path %></li>
+    <li><%= link_to 'Explore', users_path %></li>
+      <% else %>
+    <p>
+    <li><%= link_to 'Explore', users_path %></li>
+    <li> <%= link_to "Login", log_in_path %><li>
+      <% end %>
+
+  </p>
   </ul>
 </nav>
 
@@ -55,7 +64,10 @@
 </span>
 
 
+
 <img src="https://41.media.tumblr.com/46e1483c161314123fa4852c7524d33f/tumblr_nyqv1c24sn1simze1o1_75sq.png" style="padding: 15px 15px; top:0;">
+
+
 
 <span class="right">
     <a class="search-menu-toggle" href="#">
@@ -83,7 +95,15 @@
 <div style="padding-top:100px; background-color:white;">
 
   <%= yield %>
+ <footer> <center><div style="margin:150px;">
+ <% if current_user %>
+    <%= link_to "Log out", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Log in", log_in_path %><br>
+  <%= link_to "Sign Up", sign_up_path %>
+ <% end %></div>
 
+  </center></footer>
 </div>
   </main>
 

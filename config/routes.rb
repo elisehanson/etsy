@@ -1,13 +1,36 @@
 Rails.application.routes.draw do
 
-
-  root 'sellers#index'
+  root 'sessions#new'
   resources 'sellers'
+  resources :users do
+    get 'section'
+    get 'listing'
+  end
 
+  # , param: :email
+
+# only => [:new, :create, :index, :destroy]
+
+  # get ':email', to: 'users#show', as: :user
+
+  get 'index' => 'sellers#index'
   get 'listing' => 'sellers#listing'
   get 'section' => 'sellers#section'
   get 'home' => 'sellers#home'
   get 'about' => 'sellers#about'
+
+  get "/log-in" => "sessions#new"
+  post "/log-in" => "sessions#create"
+  # get "/log-out" => "sessions#destroy", as: :log_out
+
+  delete 'logout'  => 'sessions#destroy'
+
+  get "/sign-up" => "users#new"
+
+  # match '/:id', :to => "users#show", :as => :email, :via => :get
+
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

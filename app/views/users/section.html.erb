@@ -1,64 +1,43 @@
 
-<style>
 
-</style>
-
-<!-- <div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">e</a>
-    <ul class="nav">
-      <li><%= form_tag('/', method: 'get') do %>
-          <%= search_field_tag('shop') %>
-          <%= submit_tag('Search') %></li>
-    </ul>
-  </div>
-</div>
-<% end %> -->
-
- <div class="frame">
-      <div class="wrapper">
+<div class="frame">
+  <div class="wrapper">
   <div class="sections" style="width:100%;">
     <ul>
     <% @sections.each do |section| %>
-      <li><%= link_to section['title'], section_path(format: section["shop_section_id"]) %></li>
+      <li><%= link_to section['title'], user_section_path(@user, format: section["shop_section_id"]) %></li>
     <% end %>
-  </div>
+</div>
 
  <div class="grid">
-       <div class="index-picture grid-item">
-
-        <% @items.each do |item| %>
-    <div class="grid-item">
-      <div class="listinginfo">
-<!--         <div class="listinginfo bit-4"> -->
+    <div class="index-picture grid-item">
+      <% @items.each do |item| %>
+        <div class="grid-item">
+          <div class="listinginfo">
         <ul>
-
-         <li><%= image_tag item["MainImage"]["url_570xN"] %></li> 
+          <li><%= image_tag item["MainImage"]["url_570xN"] %></li> 
           <li>$<%= item['price']  %></li>
           <li><%= item['title'] %></li>
           <li><%= link_to 'Show', listing_path(format: item["listing_id"]) %></li>
         </ul>
+        </div>
       </div>
-    </div>
-
-      <% end %>
-    
+    <% end %>
   </div>
-    </div>
+</div>
 
 <div class="pages">
     <ul>
-    <li><%=link_to @page['effective_page'], sellers_path(format: "limit=" + @page['effective_limit'].to_s + 
+    <li><%=link_to @page['effective_page'], user_section_path(@user, format: "limit=" + @page['effective_limit'].to_s + 
     "&offset=" + @page['effective_offset'].to_s) %></li>
-    <li><%=link_to @page['next_page'], sellers_path(format: "limit=" + @page['effective_limit'].to_s + 
+    <li><%=link_to @page['next_page'], user_section_path(@user, format: "limit=" + @page['effective_limit'].to_s + 
     "&offset=" + @page['next_offset'].to_s) %>  </li> 
   </ul>
 </div>
 
 
-</div>
 
-<script>
+  <script>
 
 // $('.mobile-nav-wrap').hide();
 $('.js-toggle-menu').click(function(e){
@@ -87,4 +66,3 @@ $(".grid").imagesLoaded(function(){
 });
 
 </script>
-

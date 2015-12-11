@@ -1,0 +1,53 @@
+<style>
+
+.bg { 
+	padding:40px 170px; 
+	background-color:white;
+	}
+
+@media (max-width: 40em) {
+		.bg { 
+			padding:0px;
+		}
+	}
+
+</style>
+
+
+<div class="frame">
+  <div class="wrapper">
+	<div class="bg">
+
+	<% @users.each do |user| %>
+	<div class="bit-3">
+		<div class="box" style="height:200px;">
+
+	<%= link_to user.email, user %>
+	<% @infos.each do |info| %><br><br>
+	<%= image_tag info['icon_url_fullxfull'], style: "width:100px; height:100px; border-radius:50%;" %>
+	<% end %>
+
+		</div>
+	</div>
+<% end %>
+
+
+	</div>
+	</div>
+</div> 
+
+<script>
+
+// $('.mobile-nav-wrap').hide();
+$('.js-toggle-menu').click(function(e){
+  e.preventDefault();
+  $(this).toggleClass('open');
+  $('.page-wrap').toggleClass('disabled');
+  $('body').toggleClass('disabled');
+});
+$('.search-menu-toggle').click(function(){
+  $(this).toggleClass("on");
+  $('.search').slideToggle();
+});
+
+</script>

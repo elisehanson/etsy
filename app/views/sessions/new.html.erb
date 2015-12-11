@@ -1,0 +1,36 @@
+<!-- <h1>Log In</h1> -->
+<%=form_tag log_in_path do%>
+<%=label_tag :shop_name %>
+<%=text_field_tag :email, "", class: 'inpt', placeholder: 'Your shop name' %>
+<%=label_tag :password %>
+<%=password_field_tag :password, "", class: 'inpt',  placeholder: 'Your password' %>
+<div class="submit-wrap">
+<%=submit_tag "Log in", class: 'submit' %>
+</div>
+<% end %>
+
+
+
+  <script>
+
+  $('.tabs .tab').click(function(){
+    if ($(this).hasClass('signin')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signin-cont').show();
+    } 
+    if ($(this).hasClass('signup')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signup-cont').show();
+    }
+});
+$('.container .bg').mousemove(function(e){
+    var amountMovedX = (e.pageX * -1 / 30);
+    var amountMovedY = (e.pageY * -1 / 9);
+    $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+});
+
+  </script>

@@ -1,26 +1,26 @@
+<!-- <h1>User Show</h1>
 
-<style>
+<div style="float:left; padding-left:50px;">
+<strong>Id:</strong> <%= @user.id %><br />
+<strong>Email:</strong> <%= @user.email %><br />
 
-</style>
 
-<!-- <div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">e</a>
-    <ul class="nav">
-      <li><%= form_tag('/', method: 'get') do %>
-          <%= search_field_tag('shop') %>
-          <%= submit_tag('Search') %></li>
-    </ul>
-  </div>
+<%= link_to "Edit User", edit_user_path(@user) %>
+<%= link_to "Delete User", user_path(@user), method: :delete %>
 </div>
-<% end %> -->
+
+
+ -->
 
  <div class="frame">
       <div class="wrapper">
   <div class="sections" style="width:100%;">
     <ul>
+
+<!-- user section path -->
+
     <% @sections.each do |section| %>
-      <li><%= link_to section['title'], section_path(format: section["shop_section_id"]) %></li>
+      <li><%= link_to section['title'], user_section_path(@user, format: section["shop_section_id"]) %></li>
     <% end %>
   </div>
 
@@ -48,15 +48,17 @@
 
 <div class="pages">
     <ul>
-    <li><%=link_to @page['effective_page'], sellers_path(format: "limit=" + @page['effective_limit'].to_s + 
+    <li><%=link_to @page['effective_page'], user_sellers_path(@user, format: "limit=" + @page['effective_limit'].to_s + 
     "&offset=" + @page['effective_offset'].to_s) %></li>
-    <li><%=link_to @page['next_page'], sellers_path(format: "limit=" + @page['effective_limit'].to_s + 
+    <li><%=link_to @page['next_page'], user_sellers_path(@user, format: "limit=" + @page['effective_limit'].to_s + 
     "&offset=" + @page['next_offset'].to_s) %>  </li> 
   </ul>
 </div>
 
 
 </div>
+
+
 
 <script>
 
@@ -87,4 +89,3 @@ $(".grid").imagesLoaded(function(){
 });
 
 </script>
-

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transfer</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <script>
+
+  $('.tabs .tab').click(function(){
+    if ($(this).hasClass('signin')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signin-cont').show();
+    } 
+    if ($(this).hasClass('signup')) {
+        $('.tabs .tab').removeClass('active');
+        $(this).addClass('active');
+        $('.cont').hide();
+        $('.signup-cont').show();
+    }
+});
+$('.container .bg').mousemove(function(e){
+    var amountMovedX = (e.pageX * -1 / 30);
+    var amountMovedY = (e.pageY * -1 / 9);
+    $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+});
+
+  </script>
+
+</head>
+
+<body>
+
+
+    <section class="container">
+        <article class="half">
+<center><img src="https://40.media.tumblr.com/d90780b12b55614820b974db03ec4448/tumblr_nz7cvdFb8P1simze1o2_500.png" style="width:60px; height:60px;"></center>
+              <div class="tabs">
+                    <span class="tab signin active"><a href="#signin">Sign in</a></span>
+                    <span class="tab signup"><a href="#signup">Sign up</a></span>
+              </div>
+              <div class="content">
+                    <div class="signin-cont cont">
+
+                            <%= yield %>
+
+                    </div>
+                    <div class="signup-cont cont">
+
+                          <%= render "users/new" %>
+                            <%= yield :users %> 
+
+                    </div>
+              </div>
+        </article>
+        <div class="half bg"></div>
+  </section>
+
+
+
+
+
+ <!-- <footer> 
+  <center>
+    <div style="margin:150px;">
+ <% if current_user %>
+    <%= link_to "Log out", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Log in", log_in_path %><br>
+  <%= link_to "Sign Up", sign_up_path %>
+ <% end %>
+</div>
+
+  </center></footer> -->
+
+
+
+</body>
+</html>

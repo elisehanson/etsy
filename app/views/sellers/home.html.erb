@@ -21,9 +21,9 @@ $('.search-menu-toggle').click(function(){
 var feed = new Instafeed({
   clientId: '467ede5a6b9b48ae8e03f4e2582aeeb3',
       get: 'user',
-    userId: '18203412',
+    userId: '1193794731',
 /*    sortBy: 'most-liked',*/
-    limit: 10,
+    limit: 15,
     resolution: 'standard_resolution',
   after: function () {
     var images = $("#instafeed").find('a');
@@ -104,7 +104,8 @@ feed.run();
     	<div style="background-color:white;">
 
         <div class="bit-1">
-            <div class="box this1" style="background-color:white;" > 
+            <div class="box this1" style="background-color:white;  font-family: 'Fira Sans', sans-serif; font-weight:400;" > 
+              instagram -  <%= @current_user.email %></Hr>
                 <div id="instafeed"></div>  
             </div>     
           </div>
