@@ -85,11 +85,11 @@ end
 
  def listing
 
-	@user = User.find params[:id]
+	# @user = User.find params[:id]
 
-    puts @user.email
+ #    puts @user.email
 
-    shop = @user.email
+    # shop = @user.email
 
     id = params[:format]
 
@@ -104,37 +104,11 @@ end
     response2 = JSON.parse(open(url).read)
     @images = response2['results']
 
-        url = "https://openapi.etsy.com/v2/shops/#{shop}?api_key=#{api_key}"
-    response4 = JSON.parse(open(url).read)
-    @infos = response4['results']
+    #     url = "https://openapi.etsy.com/v2/shops/#{shop}?api_key=#{api_key}"
+    # response4 = JSON.parse(open(url).read)
+    # @infos = response4['results']
 
  end
-
-
-  def listing
-
-    @user = User.find params[:user_id]
-    puts @user.email
-    shop = @user.email
-
-    id = params[:format]
-
-    api_key = ENV['ETSY_API_KEY']
-
-    url = "https://openapi.etsy.com/v2/listings/#{id}?api_key=#{api_key}"
-    # byebug
-    response = JSON.parse(open(url).read)
-    @items = response['results']
-
-    url = "https://openapi.etsy.com/v2/listings/#{id}/images?api_key=#{api_key}"
-    response2 = JSON.parse(open(url).read)
-    @images = response2['results']
-
-        url = "https://openapi.etsy.com/v2/shops/#{shop}?api_key=#{api_key}"
-    response4 = JSON.parse(open(url).read)
-    @infos = response4['results']
-
-  end
 
 
 
@@ -167,9 +141,56 @@ end
     url = "https://openapi.etsy.com/v2/shops/#{shop}?api_key=#{api_key}"
     response4 = JSON.parse(open(url).read)
     @infos = response4['results']
+  end
 
+
+    def about
+
+    # (policies)
+
+    # shop = params.fetch(:shop, 'allencompany')
+
+    @user = User.find params[:user_id]
+
+    puts @user.email
+
+    shop = @user.email
+
+    api_key = ENV['ETSY_API_KEY']
+
+    url = "https://openapi.etsy.com/v2/shops/#{shop}?api_key=#{api_key}"
+    response4 = JSON.parse(open(url).read)
+    @infos = response4['results']
+
+    # url = "https://openapi.etsy.com/v2/shops/#{shop}/about?api_key=#{api_key}"
+    # response5 = JSON.parse(open(url).read)
+    # @about = response5['results']
 
   end
+
+
+
+
+  def edit
+    @user = User.find params[:id]
+  end
+
+
+  # update action
+  def update
+    @user = User.find params[:id]
+        respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
 
 
 def destroy
@@ -183,7 +204,7 @@ end
 private
 
 def user_params
-	params.require(:user).permit(:email, :password, :shop_name, :password_confirmation)
+	params.require(:user).permit(:email, :password, :password_confirmation, :image)
 end
 
 end

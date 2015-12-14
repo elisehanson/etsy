@@ -8,6 +8,8 @@
 	<%=f.password_field :password, class: 'inpt', placeholder: 'Your password'  %>
 	<%=f.label :password_confirmation %>
 	<%=f.password_field :password_confirmation,  class: 'inpt', placeholder: 'Your password confirmation'  %>
+    <%=f.label :image %>
+    <%=f.file_field :image  %>
 	<div class="submit-wrap">
 	<%=f.submit "Sign Up", class: 'submit'  %>
 	</div>

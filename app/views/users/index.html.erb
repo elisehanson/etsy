@@ -1,35 +1,87 @@
 <style>
 
 .bg { 
-	padding:40px 170px; 
+/*	padding:40px 40px; */
 	background-color:white;
+/*	padding-right:4%;*/
+padding-top:30px;
 	}
 
 @media (max-width: 40em) {
 		.bg { 
-			padding:0px;
+			padding-right:3%;
 		}
 	}
+
+
+
+
+.grid {
+  background: #fff;
+  max-width: 1400px;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-item {
+  float: left;
+  width: 200px;
+  background: #fff;
+  border: 2px solid #fff;
+  border-color: #fff;
+}
+
+.grid-item img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.title {
+  font-family: "DINComp-Bold", sans-serif;
+  font-size:10px;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+
 
 </style>
 
 
-<div class="frame">
-  <div class="wrapper">
+<!-- <div class="frame">
+  <div class="wrapper"> -->
 	<div class="bg">
+		 <div class="grid" style="margin:auto;">
+       <div class="index-picture grid-item">
 
 	<% @users.each do |user| %>
-	<div class="bit-3">
-		<div class="box" style="height:200px;">
-
+	    <div class="grid-item title">
+<!-- 	<div class="bit-3">
+		<div class="box" style="background-color:white;"> -->
+	<%= link_to user.email do %>
+		<%= image_tag user.image(:large), :class => "hoveritem" %>
+		<% end %>
 	<%= link_to user.email, user %>
-	<% @infos.each do |info| %><br><br>
-	<%= image_tag info['icon_url_fullxfull'], style: "width:100px; height:100px; border-radius:50%;" %>
-	<% end %>
+<!-- 	<%= link_to "edit", edit_user_path(user) %> -->
+</div>
 
+
+<!-- 	<% @infos.each do |info| %><br><br> -->
+<!-- 	<%= image_tag info['icon_url_fullxfull'], style: "width:100px; height:100px; border-radius:50%;" %> -->
+<!-- 	<% end %> -->
+
+<!-- 		</div>
+	</div> -->
+<% end %>
 		</div>
 	</div>
-<% end %>
 
 
 	</div>
@@ -48,6 +100,33 @@ $('.js-toggle-menu').click(function(e){
 $('.search-menu-toggle').click(function(){
   $(this).toggleClass("on");
   $('.search').slideToggle();
+});
+
+	$(document).on("scroll", function(){
+		if
+      ($(document).scrollTop() > 100){
+		  $("header").addClass("shrink");
+			// updateSliderMargin();
+		}
+		else
+		{
+			$("header").removeClass("shrink");
+			// updateSliderMargin();
+		}
+	});
+
+	var $grid = jQuery('.grid');
+
+$(".grid").imagesLoaded(function(){
+
+  $('.grid').isotope({
+    itemSelector: '.grid-item',
+    masonry: {
+      columnWidth: 204
+    }
+  });
+
+  $grid.isotope('reloadItems');
 });
 
 </script>

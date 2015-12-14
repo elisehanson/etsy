@@ -15,7 +15,9 @@
         <div class="grid-item">
           <div class="listinginfo">
         <ul>
-          <li><%= image_tag item["MainImage"]["url_570xN"] %></li> 
+        <%= link_to user_listing_path(@user, format: item["listing_id"]) do %>
+         <li><%= image_tag item["MainImage"]["url_570xN"], :class => "hoveritem" %></li> 
+         <% end %>
           <li>$<%= item['price']  %></li>
           <li><%= item['title'] %></li>
           <li><%= link_to 'Show', listing_path(format: item["listing_id"]) %></li>

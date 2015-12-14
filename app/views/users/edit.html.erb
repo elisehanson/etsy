@@ -1,0 +1,25 @@
+<h1>User Edit</h1>
+
+<ul>
+<%= form_for @user, html: { multipart: true }, method: :put do |form| %>
+  <li>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </li>
+
+  <li>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </li>
+<li>
+    <%=form.label :password_confirmation %>
+  <%=form.password_field :password_confirmation,  class: 'inpt', placeholder: 'Your password confirmation'  %>
+</li>
+<li>
+    <%= form.label :image %> 
+<%= form.file_field :image %> 
+</li>
+
+  <%= form.submit :edit %>
+<% end %>
+</ul>

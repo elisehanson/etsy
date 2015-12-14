@@ -1,8 +1,8 @@
 
 /*// Sass Mixins
-// Breakpoints for each query
+// Breakpoints for each query*/
 
-$smartphone: 480px;
+/*$smartphone: 480px;
 $desktop: 1100px;
 
 @mixin respondTo($media) {
@@ -14,6 +14,8 @@ $desktop: 1100px;
   }
 }
 */
+
+
 
 @mixin centerer {
   position: absolute;
@@ -65,8 +67,53 @@ header {
   background-color: white;
   position:fixed;
   width:100%;
-  z-index: 3;
+/*  z-index: 3;*/
+/*  padding:40px 0 70px 0;*/
+    /* animation magic */
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  z-index: 9999;
+  top: 0;
 }
+
+
+.hello {
+  font-family: "DINComp-Bold", sans-serif;
+  font-size:12px;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #000000;
+  display: inline;
+/*  padding: 100px 0px;*/
+}
+
+
+.hello a {
+  color: #000;
+  text-decoration: none;
+  padding:0 40px;
+}
+
+.hello a:hover {
+  text-decoration: underline;
+}
+
+
+.shrink {
+  padding: 0px 0 40px 0;
+}
+
+.bye {
+/*  font-family: "DINComp-Bold", sans-serif;*/
+/*margin-top:200px;*/
+  font-size:12px;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #000000;
+  display: inline;
+  padding: 0 0 100px 0;
+}
+
 
 /*// styling of hamburger menu*/
 
@@ -109,6 +156,12 @@ header {
     }
   }
 }
+
+
+
+
+
+
 
 
 /*// nav styles*/
@@ -254,3 +307,20 @@ footer {
   font-family: 'Fira Sans', sans-serif;
   font-size:12px;
 }
+
+.hoveritem:hover {
+    opacity: .9;
+}
+
+  @media (max-width: 1062px) {
+    .hello a {
+      padding:0 20px; } }
+
+  @media (max-width: 950px) {
+    .hello {
+      display: none; } }
+
+
+
+
+

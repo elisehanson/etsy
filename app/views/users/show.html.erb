@@ -12,18 +12,17 @@
 
  -->
 
-  <% @infos.each do |info| %> 
+<!--   <% @infos.each do |info| %> 
           <div style="height:75px; width:75px; padding: 5px; top:0; float:left;"> <%= image_tag info['icon_url_fullxfull'], style: "width:100%; height:100%; border-radius:50%;" %> </div>
            <% end %>
 
-
+<br> -->
  <div class="frame">
       <div class="wrapper">
   <div class="sections" style="width:100%;">
     <ul>
 
 <!-- user section path -->
-
 
 
 
@@ -38,10 +37,10 @@
         <% @items.each do |item| %>
     <div class="grid-item">
       <div class="listinginfo">
-<!--         <div class="listinginfo bit-4"> -->
         <ul>
-
-         <li><%= image_tag item["MainImage"]["url_570xN"] %></li> 
+        <%= link_to user_listing_path(@user, format: item["listing_id"]) do %>
+         <li><%= image_tag item["MainImage"]["url_570xN"], :class => "hoveritem" %></li> 
+         <% end %>
           <li>$<%= item['price']  %></li>
           <li><%= item['title'] %></li>
           <li><%= link_to 'Show', user_listing_path(@user, format: item["listing_id"]) %></li>

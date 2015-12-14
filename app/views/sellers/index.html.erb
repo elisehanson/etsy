@@ -1,6 +1,10 @@
 
 <style>
 
+/*.hoveritem:hover+.hoverdiv {
+    display: block;
+}*/
+
 </style>
 
 <!-- <div class="navbar">
@@ -15,6 +19,8 @@
 </div>
 <% end %> -->
 
+
+
  <div class="frame">
       <div class="wrapper">
   <div class="sections" style="width:100%;">
@@ -24,16 +30,16 @@
     <% end %>
   </div>
 
- <div class="grid">
+ <div class="grid" style="margin:auto;">
        <div class="index-picture grid-item">
 
         <% @items.each do |item| %>
     <div class="grid-item">
       <div class="listinginfo">
-<!--         <div class="listinginfo bit-4"> -->
         <ul>
-
-         <li><%= image_tag item["MainImage"]["url_570xN"] %></li> 
+        <%= link_to listing_path(format: item["listing_id"]) do %>
+         <li><%= image_tag item["MainImage"]["url_570xN"], :class => "hoveritem" %></li> 
+         <% end %>
           <li>$<%= item['price']  %></li>
           <li><%= item['title'] %></li>
           <li><%= link_to 'Show', listing_path(format: item["listing_id"]) %></li>
@@ -58,6 +64,7 @@
 
 </div>
 
+
 <script>
 
 // $('.mobile-nav-wrap').hide();
@@ -72,6 +79,11 @@ $('.search-menu-toggle').click(function(){
   $('.search').slideToggle();
 });
 
+// $('.hoveritem').hover(function() {
+//   $( this ).fadeOut( 100 );
+//   $( this ).fadeIn( 500 );
+// });
+
 var $grid = jQuery('.grid');
 
 $(".grid").imagesLoaded(function(){
@@ -85,6 +97,8 @@ $(".grid").imagesLoaded(function(){
 
   $grid.isotope('reloadItems');
 });
+
+
 
 </script>
 

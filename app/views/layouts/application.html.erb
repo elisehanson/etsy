@@ -63,9 +63,17 @@
    </a>
 </span>
 
+   <span class="hello">
+    <%= link_to 'Explore', users_path %>
+    <%= link_to 'About', about_path %>
+             <% if current_user %>
+    <%= link_to 'My Shop', sellers_path %>
+    <% end %>
+  </span>
 
 
-<img src="https://41.media.tumblr.com/46e1483c161314123fa4852c7524d33f/tumblr_nyqv1c24sn1simze1o1_75sq.png" style="padding: 15px 15px; top:0;">
+
+<img src="https://41.media.tumblr.com/46e1483c161314123fa4852c7524d33f/tumblr_nyqv1c24sn1simze1o1_75sq.png" style="padding: 15px 15px; top:0; float:left;">
 
 
 
@@ -95,16 +103,20 @@
 <div style="padding-top:100px; background-color:white;">
 
   <%= yield %>
- <footer> <center><div style="margin:150px;">
+
+  </div>
+
+ <footer> <center>
+  <div class="bye">
  <% if current_user %>
     <%= link_to "Log out", logout_path, method: :delete %>
 <% else %>
-  <%= link_to "Log in", log_in_path %><br>
+  <%= link_to "Log in", log_in_path %>
   <%= link_to "Sign Up", sign_up_path %>
  <% end %></div>
 
   </center></footer>
-</div>
+
   </main>
 
 

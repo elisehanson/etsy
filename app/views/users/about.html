@@ -1,0 +1,201 @@
+<script>
+
+// $('.mobile-nav-wrap').hide();
+$('.js-toggle-menu').click(function(e){
+  e.preventDefault();
+  $(this).toggleClass('open');
+  $('.page-wrap').toggleClass('disabled');
+  $('body').toggleClass('disabled');
+});
+$('.search-menu-toggle').click(function(){
+  $(this).toggleClass("on");
+  $('.search').slideToggle();
+});
+
+ 
+var feed = new Instafeed({
+  clientId: '467ede5a6b9b48ae8e03f4e2582aeeb3',
+      get: 'user',
+    userId: '6085451',
+/*    sortBy: 'most-liked',*/
+    limit: 15,
+    resolution: 'standard_resolution',
+  after: function () {
+    var images = $("#instafeed").find('a');
+    $.each(images, function(index, image) {
+      var delay = (index * 75) + 'ms';
+      $(image).css('-webkit-animation-delay', delay);
+      $(image).css('-moz-animation-delay', delay);
+      $(image).css('-ms-animation-delay', delay);
+      $(image).css('-o-animation-delay', delay);
+      $(image).css('animation-delay', delay);
+      $(image).addClass('animated flipInX');
+    });
+  },
+  template: '<div class="bit-5"><a href="{{link}}" target="_blank"><img src="{{image}}" /><div class="likes">&hearts; {{likes}}</div></a></div>'
+});
+feed.run();
+
+</script>
+
+<style>
+
+@media (max-width: 30em) {
+
+  #instafeed .likes {
+    display:none;
+  }
+  #instafeed a:hover .likes {
+    display:none;
+  }
+
+}
+
+/*.ig {
+    width:20%;
+    height:20%;
+    float:left;
+}*/
+
+#instafeed a {
+  padding:5px 5px 1px 5px;
+  margin:10px;
+  display:inline-block;
+/*  border:1px solid #e1e1e1;
+  border-radius: 4px;*/
+  position:relative;
+}
+
+#instafeed .likes {
+
+  background:rgba(255,255,255,0.3);
+  font-family:'futura';
+  font-size:.9em;
+  position:absolute;
+  color:#000000;
+  right:5px;
+  top:5px;
+  left:5px;
+  bottom:5px;
+  opacity:0;
+  text-align:center;
+  line-height:200px;
+/*  text-shadow:0 1px rgba(0,0,0,0.5);*/
+  -webkit-font-smoothing:antialiased;
+  -webkit-transition: opacity 100ms ease;
+    -moz-transition: opacity 100ms ease;
+    -o-transition: opacity 100ms ease;
+    -ms-transition: opacity 100ms ease;
+    transition: opacity 100ms ease;
+}
+
+#instafeed a:hover .likes {
+  opacity:1;
+}
+
+.abouttitle {
+  font-family: "DINComp-Bold", sans-serif;
+  font-size:24px;
+  text-transform: uppercase;
+  font-weight: 100;
+  background-color:white; 
+  text-align:left; 
+  padding:20% 0;
+}
+
+.aboutimage {
+  background-color:white; 
+  padding:6% 0 0 250px;"
+}
+
+@media (max-width: 30em) {
+
+.aboutimage {
+  background-color:white; 
+  padding:0 12%;
+}
+
+.abouttitle {
+text-align: center;
+}
+
+.announcement {
+  display: none;
+}
+
+}
+
+</style>
+
+
+
+<div class="frame">
+<% @infos.each do |info| %>
+
+    <div class="bit-2">
+      <div class="box aboutimage">
+      <div style="height:300px; width:300px;"> <%= image_tag info['icon_url_fullxfull'], style: "width:100%; height:100%; border-radius:50%;" %> </div> </hr>
+      </div>
+    </div>
+
+    <div class="bit-2">
+      <div class="box abouttitle">
+        <%= info['shop_name'] %> </hr>
+        <div class="abouttitle" style="font-size:17px; padding:5% 0;"> <%= info['num_favorers'] %> etsy followers </div>
+      </div>
+    </div>
+
+<!--     <div class="bit-2">
+    <div class="box abouttitle" style="background-color:white; font-size:15px; text-align:left; padding:20% 0;">
+          <%= info['num_favorers'] %> etsy followers </hr>
+            </div>
+</div> -->
+
+        <div class="bit-1">
+    <div class="box announcement" style="background-color:white;">
+<br>
+         <div style="font-size:12px; padding:2% 15%"><%= info['announcement'] %> </div></hr>
+           </div>
+</div>
+
+<!-- <div class="bit-3">
+    <div class="box" style="background-color:white;">
+         <h1> sale message </h1><br>
+          <%= info['sale_message'] %></hr>
+            </div>
+</div> -->
+
+
+
+<!-- <div class="bit-1">
+    <div class="box" style="background-color:white;">
+          <h1> shipping policy </h1><br>
+          <%= info['policy_shipping'] %> </hr>
+            </div>
+</div> -->
+        
+      </div>
+    </div>
+  <% end %>
+
+      <div class="frame">
+      <div style="background-color:white;">
+
+        <div class="bit-1">
+            <div class="box this1" style="background-color:white; font-family: 'Fira Sans', sans-serif; font-weight:400;" > 
+                <div id="instafeed"></div>  
+            </div>     
+          </div>
+          
+    </div>
+</div>
+
+<div class="bit-1">
+    <div class="box abouttitle" style="background-color:#efefef; height:200px; font-size:10px;">
+      <h1>social bar </h1>
+            </div>
+</div>
+
+  </div>
+</div>
+</div>

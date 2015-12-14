@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     get 'section'
     get 'listing'
+    get 'about'
   end
 
   # , param: :email
