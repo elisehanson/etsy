@@ -32,8 +32,12 @@
     <ul>
     <li><%=link_to @page['effective_page'], section_path(format: "limit=" + @page['effective_limit'].to_s + 
     "&offset=" + @page['effective_offset'].to_s) %></li>
-    <li><%=link_to @page['next_page'], section_path(format: "limit=" + @page['effective_limit'].to_s + 
-    "&offset=" + @page['next_offset'].to_s) %>  </li> 
+
+    <span style="font-size:12px"><%=link_to ">", section_path(format: "limit=" + @page['effective_limit'].to_s + 
+    "&offset=" + @page['next_offset'].to_s) %>  </li> </span>
+
+<!--     <li><%=link_to @page['next_page'], section_path(format: "limit=" + @page['effective_limit'].to_s + 
+    "&offset=" + @page['next_offset'].to_s) %>  </li>  -->
   </ul>
 </div>
 

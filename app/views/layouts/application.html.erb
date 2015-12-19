@@ -38,9 +38,9 @@
   <ul class="fixed-mobile-nav">
      <% if current_user %>
     <li><%= link_to 'My Shop', sellers_path %></li>
-    <li><%= link_to 'About', about_path %> </li>
-    <li><%= link_to 'Blog', home_path %></li>
-    <li><%= link_to 'Explore', users_path %></li>
+    <li ><%= link_to 'About', about_path %> </li>
+    <li class="js-toggle-menu"><%= link_to 'Blog', home_path %></li>
+    <li class="js-toggle-menu"><%= link_to 'Explore', users_path %></li>
       <% else %>
     <p>
     <li><%= link_to 'Explore', users_path %></li>
@@ -109,7 +109,7 @@
  <footer> <center>
   <div class="bye">
  <% if current_user %>
-    <%= link_to "Log out", logout_path, method: :delete %>
+<!--     <%= link_to "Log out", logout_path, method: :delete %> -->
 <% else %>
   <%= link_to "Log in", log_in_path %>
   <%= link_to "Sign Up", sign_up_path %>
