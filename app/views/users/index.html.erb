@@ -13,9 +13,6 @@ padding-top:30px;
 		}
 	}
 
-
-
-
 .grid {
   background: #fff;
   max-width: 1400px;
@@ -69,6 +66,7 @@ padding-top:30px;
 		<%= image_tag user.image(:large), :class => "hoveritem" %>
 		<% end %>
 	<%= link_to user.email, user %>
+<!-- 	 <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>  -->
 <!-- 	<%= link_to "edit", edit_user_path(user) %> -->
 </div>
 

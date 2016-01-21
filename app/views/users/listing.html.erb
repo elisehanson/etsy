@@ -1,6 +1,14 @@
 
     <style>
 
+    h2 {
+      font-size: 30px;
+    }
+
+    .price {
+      font-size: 30px;
+    }
+
     .swiper-container {
         width: 100%;
         height: 100%;
@@ -8,7 +16,7 @@
 
     .swiper-container img {
         max-width: 100%;
-        height: auto;
+        height: 100%;
     }
 
     .swiper-slide {
@@ -116,10 +124,10 @@ $('.fave').click(function() {
            <% end %> 
         </div>
         <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination swiper-pagination-black"></div>
         <!-- Add Navigation -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev swiper-button-black"></div>
+        <div class="swiper-button-next swiper-button-black"></div>
     </div>
 </div>
 
@@ -128,9 +136,9 @@ $('.fave').click(function() {
   <ul>
     <% @items.each do |item| %>
       <li><h2> <%= item['title'] %></h2></li>
-      <li> $<%= item['price']  %></li>
+      <li><div class="price"> $<%= item['price']  %></div></li>
 
-      <li style="font-size:12px;"> <%= item['description'] %></li>
+      <li style="font-size:13px;"> <%= item['description'] %></li>
 
       <span><button class="btn fave"><i class="material-icons" style="font-size:12px;">favorite_border</i></button> <%= button_tag "add to cart  | $" + item['price'], :class => "btn"%> </span>
 

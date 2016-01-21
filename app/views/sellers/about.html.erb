@@ -108,6 +108,14 @@ feed.run();
   padding:6% 0 0 250px;"
 }
 
+.instagramname {
+  font-family: "DINComp-Bold", sans-serif;
+  font-size:14px;
+  text-transform: uppercase;
+  font-weight: 100;
+  background-color:white; 
+}
+
 @media (max-width: 30em) {
 
 .aboutimage {
@@ -182,7 +190,7 @@ text-align: center;
       <div style="background-color:white;">
 
         <div class="bit-1">
-            <div class="box this1" style="background-color:white; font-family: 'Fira Sans', sans-serif; font-weight:400;" > 
+            <div class="box this1 instagramname" style="background-color:white;" > 
               instagram -  <%= @current_user.email %></Hr>
                 <div id="instafeed"></div>  
             </div>     
@@ -192,7 +200,7 @@ text-align: center;
 </div>
 
 <div class="bit-1">
-    <div class="box abouttitle" style="background-color:#efefef; height:200px; font-size:10px;">
+    <div class="box abouttitle " style="background-color:#efefef; height:200px; font-size:10px;">
       <h1>social bar </h1>
             </div>
 </div>

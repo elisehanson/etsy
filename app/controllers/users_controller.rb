@@ -144,7 +144,7 @@ end
   end
 
 
-    def about
+def about
 
     # (policies)
 
@@ -165,8 +165,12 @@ end
     # url = "https://openapi.etsy.com/v2/shops/#{shop}/about?api_key=#{api_key}"
     # response5 = JSON.parse(open(url).read)
     # @about = response5['results']
+end
 
-  end
+
+    def settings
+
+    end
 
 
 

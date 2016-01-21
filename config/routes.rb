@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'section' => 'sellers#section'
   get 'home' => 'sellers#home'
   get 'about' => 'sellers#about'
+  get 'settings' => 'users#settings'
 
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"

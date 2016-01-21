@@ -17,6 +17,8 @@
 <!-- Instafeed -->
 	<script src="https://cdn.rawgit.com/stevenschobert/instafeed.js/master/instafeed.js"></script>  
 
+  
+
   <script>
 
   $('.js-toggle-menu').click(function(e){
@@ -106,10 +108,23 @@
 
   </div>
 
- <footer> <center>
+ <footer> 
+
+  <center>
   <div class="bye">
  <% if current_user %>
-<!--     <%= link_to "Log out", logout_path, method: :delete %> -->
+ <div style="padding-right:50px; display:inline-block;">
+<%= link_to logout_path, method: :delete do %> 
+<i class="material-icons">exit_to_app</i>
+</div>
+<% end %>
+
+<%= link_to settings_path do %> 
+<i class="material-icons">settings</i>
+<% end %>
+
+
+
 <% else %>
   <%= link_to "Log in", log_in_path %>
   <%= link_to "Sign Up", sign_up_path %>

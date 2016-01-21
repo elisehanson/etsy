@@ -115,6 +115,8 @@ header {
 }
 
 
+
+
 /*// styling of hamburger menu*/
 
 .hamburger-menu {
@@ -308,8 +310,14 @@ footer {
   font-size:12px;
 }
 
+.hoveritem {
+      transition: margin-top .5s;
+    -webkit-transition: margin-top .3s; /* Safari 3.1 to 6.0 */
+}
+
 .hoveritem:hover {
     opacity: .9;
+    margin-top:-10px;
 }
 
   @media (max-width: 1062px) {
